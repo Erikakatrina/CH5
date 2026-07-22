@@ -135,6 +135,7 @@
             margin-left: -50vw;
             margin-right: -50vw;
             aspect-ratio: 2.39 / 1; 
+            min-height: 480px; /* Keamanan agar di HP tidak terlalu gepeng */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -202,6 +203,7 @@
             color: var(--text-muted);
             font-size: 1.1rem;
             margin-bottom: 2rem;
+            max-width: 700px;
         }
         .btn-primary {
             display: inline-block;
@@ -253,7 +255,7 @@
         }
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
         .card {
@@ -318,93 +320,6 @@
             padding: 3px 8px;
             border-radius: 2px;
             color: var(--text-muted);
-        }
-
-        /* --- FOOTER & CONTACT STYLES --- */
-        .site-footer {
-            background-color: var(--bg-dark);
-            border-top: 1px solid var(--border-color);
-            padding: 5rem 0 2rem 0;
-            margin-top: 6rem;
-        }
-
-        .footer-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .footer-title {
-            font-family: var(--font-heading);
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-subtitle {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 3rem;
-        }
-
-        .contact-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            width: 100%;
-            max-width: 900px;
-            margin-bottom: 4rem;
-        }
-
-        .contact-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            border-color: var(--accent-red);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(229, 46, 46, 0.15);
-        }
-
-        .contact-label {
-            font-size: 0.75rem;
-            letter-spacing: 1.5px;
-            color: var(--accent-red);
-            font-weight: 700;
-        }
-
-        .contact-value {
-            color: var(--text-main);
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
-
-        .footer-bottom {
-            width: 100%;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 3rem 1.5rem;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
         }
 
         /* --- ABOUT SECTION STYLES --- */
@@ -491,11 +406,182 @@
             font-size: 0.8rem;
         }
 
-        /* Responsive untuk layar HP */
+        /* --- FOOTER & CONTACT STYLES --- */
+        .site-footer {
+            background-color: var(--bg-dark);
+            border-top: 1px solid var(--border-color);
+            padding: 5rem 0 2rem 0;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-title {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-subtitle {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 4rem;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            border-color: var(--accent-red);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(229, 46, 46, 0.15);
+        }
+
+        .contact-label {
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        .contact-value {
+            color: var(--text-main);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .footer-bottom {
+            width: 100%;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* ==========================================
+           RESPONSIVE RULES (MOBILE & TABLET FIXES)
+           ========================================== */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+
+            /* Navigasi HP */
+            nav {
+                padding: 1.25rem 0;
+            }
+
+            .logo span {
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            /* Hero Section HP */
+            .hero {
+                aspect-ratio: auto; /* Lepas aspek rasio kaku di mobile */
+                padding: 4rem 1.25rem;
+                min-height: auto;
+            }
+
+            .hero-content {
+                padding: 0;
+            }
+
+            .hero-tag {
+                font-size: 0.75rem;
+                letter-spacing: 1.5px;
+                margin-bottom: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .btn-primary {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            /* Section Titles & Layout HP */
+            .section-title {
+                margin: 4rem 0 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr; /* 1 Kolom penuh di HP */
+                gap: 1.5rem;
+            }
+
+            /* About Grid HP */
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 2.5rem;
+            }
+
+            .bio-highlight {
+                font-size: 1.05rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr; /* Skill item jadi 1 kolom di layar sempit */
+            }
+
+            /* Footer & Contact HP */
+            .site-footer {
+                padding: 3.5rem 0 2rem 0;
+                margin-top: 4rem;
+            }
+
+            .footer-title {
+                font-size: 1.75rem;
+            }
+
+            .contact-links {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-bottom: 2.5rem;
             }
         }
     </style>
@@ -610,6 +696,7 @@
                 </div>
             </div>
         </section>
+
         <!-- ABOUT SECTION -->
         <section id="about" class="about-section">
             <div class="section-title">
@@ -624,9 +711,8 @@
                         Dari lanskap alam terkecil hingga kemegahan luar angkasa, ide terbaik Anda layak disajikan secara sempurna. Saya di sini untuk mewujudkan <em>imajinasi terliar Anda</em> menjadi kenyataan visual 3D yang ikonis, presisi, dan tak terlupakan.
                     </p>
                     <p>
-                        Berbasis di Indonesia, saya memiliki pengalaman merencanakan produksi visual secara menyeluruh, mengelola *pipeline*, hingga mengeksekusi proyek dengan fokus tinggi pada detail dan estetika visual dramatis.Eksplorasi karya saya mencakup simulasi kompleks, pembuatan *landscapes* prosedural, hingga penggabungan elemen mitologi/folklore tradisional yang dikemas dalam visual modern.
+                        Berbasis di Indonesia, saya memiliki pengalaman merencanakan produksi visual secara menyeluruh, mengelola pipeline, hingga mengeksekusi proyek dengan fokus tinggi pada detail dan estetika visual dramatis. Eksplorasi karya saya mencakup simulasi kompleks, pembuatan landscapes prosedural, hingga penggabungan elemen mitologi/folklore tradisional yang dikemas dalam visual modern.
                     </p>
-                    
                 </div>
 
                 <!-- Kolom Skills & Tools -->
@@ -652,8 +738,6 @@
             </div>
         </section>
     </div>
-
-    
 
     <!-- Section Contact / Footer Utama -->
     <footer id="contact" class="site-footer">
@@ -693,10 +777,8 @@
         function rotateWord() {
             if (!glitchElement) return;
 
-            // 1. Picu efek glitch
             glitchElement.classList.add("glitching");
 
-            // 2. Ganti teks di tengah durasi glitch
             setTimeout(() => {
                 currentIndex = (currentIndex + 1) % words.length;
                 const nextWord = words[currentIndex];
@@ -705,7 +787,6 @@
                 glitchElement.setAttribute("data-text", nextWord);
             }, 150);
 
-            // 3. Hentikan efek glitch
             setTimeout(() => {
                 glitchElement.classList.remove("glitching");
             }, 400);
